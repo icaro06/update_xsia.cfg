@@ -39,8 +39,9 @@ func main() {
 	buffer := "\n" //Buffer
 	header := ""   //Header buffer
 	header_types := []string{"IP", "PORT", "LOGIN", "PWD"}
-	body_types := []string{"ALM_VALUE", "XSIA_TRAME"}
+	body_types := []string{"ALM_VALUE", "ALM_NUM", "XSIA_TRAME"}
 
+	fmt.Println("Version 1")
 	//Analysez s'il y a des arguments
 	if len(os.Args) < 4 {
 		fmt.Println("Erreur args \n Example : regenConfig {nom_fichier.cfg} {premiere alm} {space} ")
@@ -97,6 +98,7 @@ func main() {
 
 			// Écrire les entrées proportionnelles à la valeur de ALM_VALUE dans le fichier de sortie
 			if strings.Contains(linea, "ALM_VALUE:") || strings.Contains(linea, "ALM_NUM:") { //Ligne avec ALM_VALUE
+				fmt.Println(linea)
 				buffer += "ALM_VALUE:" + strconv.Itoa(alm) + "\n"
 				alms++
 				alm = (alm + space) //alarme actuel
