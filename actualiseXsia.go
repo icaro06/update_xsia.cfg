@@ -96,8 +96,8 @@ func main() {
 			}
 
 			// Écrire les entrées proportionnelles à la valeur de ALM_VALUE dans le fichier de sortie
-			if strings.Contains(linea, "ALM_VALUE:") { //Ligne avec ALM_VALUE
-				buffer += "ALM_NUM:" + strconv.Itoa(alm) + "\n"
+			if strings.Contains(linea, "ALM_VALUE:") || strings.Contains(linea, "ALM_NUM:") { //Ligne avec ALM_VALUE
+				buffer += "ALM_VALUE:" + strconv.Itoa(alm) + "\n"
 				alms++
 				alm = (alm + space) //alarme actuel
 			} else {
